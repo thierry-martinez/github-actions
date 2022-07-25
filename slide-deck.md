@@ -6,9 +6,14 @@ size: 4:3
 # Continuous integration with Github Actions, Gitlab pipelines and ci.inria.fr
 
 Thierry Martinez (SED)
-Willow software developper meetup, 27 July 2022
+Willow software developper meetup
+27 July 2022
+
+---
 
 # Tentative for a map of continuous integration platforms
+
+---
 
 ## Github Actions
 
@@ -23,6 +28,8 @@ Willow software developper meetup, 27 July 2022
 - Very easy to extend (new reusable actions can be defined in git
   repositories), Linux runners can run docker containers,
   user-provided runners can be used.
+
+---
 
 ## Gitlab Pipelines
 
@@ -39,6 +46,8 @@ Willow software developper meetup, 27 July 2022
   anchors and file inclusion to reuse parts of code), but there is no
   built-in supports for reusable actions comparable with what Github
   Actions proposes.
+
+---
 
 ## ci.inria.fr
 
