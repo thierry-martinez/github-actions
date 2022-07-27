@@ -194,7 +194,7 @@ reduce build times:
 
 ---
 
-## [Use a job to build the environment]
+## Use a job to build the environment
 
 - Store a personal access token] with scope `write:packages` in a
   secret.
@@ -213,7 +213,7 @@ reduce build times:
 
 ---
 
-## [Run a job only if a file has changed]
+## Run a job only if a file has changed
 
 - Checkout with the input `fetch-depth: 2` to get the two last commits (by
   default, only the last commit is checked out, _i.e._ `git fetch --depth=1`)
@@ -246,12 +246,15 @@ reduce build times:
 
 - [softprops/action-gh-release](https://github.com/softprops/action-gh-release) with input `files`
 
+---
 
 ## Some notes on Windows runner
 
 - `windows-latest` runners come with `choco` and [some pre-installed tools], such as `7z`.
 
   [some pre-installed tools]: https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md#tools
+  
+---
 
 ## [Adding self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners)
 
@@ -259,6 +262,8 @@ reduce build times:
   Follow the instructions. Tags match the values of `runs-on:` field.
 
 - `./run.sh` can be run in `tmux` or as a service.
+
+---
 
 ## Matrix job
 
