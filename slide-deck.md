@@ -276,3 +276,60 @@ reduce build times:
   combinations when a combination failed.
   
   [`strategy.fail-fast: false`]: https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#handling-failures
+
+---
+
+## Creating custom actions
+
+[`creating actions`]: https://docs.github.com/en/actions/creating-actions/about-custom-actions
+
+- 3 types of actions can be created: Docker, Javascript and Composite
+
+- Docker actions can only be used on Linux runners
+
+- Composite actions combines multiple workflow steps in a single action
+
+---
+
+## Describing an action
+
+- An action is described by a single `action.yml` file
+
+- One can define the inputs, outputs end environnement variables of an action
+
+- If the action is designed to be reusable and public, use a dedicated public repository for the action
+  See [`publishing on GitHub Markerplace`]: https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace
+
+- If the action is local to a repository, place the yml file in `.github/actions/‹action name›/action.yml`
+
+- Local actions are used in a workflow as follows:
+
+```yml
+    - name: Run docker custom action
+      uses: ./.github/actions/local-action
+      ...
+```
+
+---
+
+## Example: a Docker action
+
+- [`Docker action example`]: https://github.com/aabadie/github-actions-python-example/blob/custom_action_docker/.github/actions/docker-action/action.yml
+
+- [`Docker image example`]: https://github.com/aabadie/github-actions-docker-example
+
+- The Docker action can use a `Dockerfile` => GitHub will build the image when the action is run
+
+- [`Docker actions doc`]: https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action
+
+---
+
+## Example: a Javascript action
+
+- [`javascript action example`]: https://github.com/aabadie/github-actions-python-example/blob/custom_action_javascript/.github/actions/install-dependencies/action.yml
+
+- local javascript actions has the drawback of requiring `node_modules/` to be there => clutters the repository
+
+- [`Docker actions doc`]: https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action
+
+- [`Actions toolkit`]: https://github.com/actions/toolkit
