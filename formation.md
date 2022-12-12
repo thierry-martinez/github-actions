@@ -78,7 +78,37 @@ to be modified concurrently by offering merging facilities
 
 ## GitHub actions platform
 
+### Self-hosted runners
+
+
+
 machines fournies/self-hosted runners, dépendances entre jobs (graphe), status (commit, PR), artéfacts
+
+
+## Comparison with GitLab Pipelines
+
+(introduced in [GitLab 8.8.0, on 22 May 2016](https://gitlab.com/gitlab-org/gitlab-foss/-/blob/master/changelogs/archive.md#880-2016-05-22))
+
+- Continuous integration system integrated in GitLab. gitlab.inria.fr
+  provides shared docker runners, ci.inria.fr can host user-maintained VMs,
+  and self-hosted GitLab runners can be registered.
+
+- File-based workflow specification: [`.gitlab.yml`].  A command-line
+  tool, `gitlab-ci-local` is available for running workflows locally
+  (or from other continuous integration platforms):
+  https://github.com/firecow/gitlab-ci-local
+
+  [`.gitlab.yml`]: https://docs.gitlab.com/ee/ci/yaml/
+
+- The supported YAML syntax is richer than GitHub Actions (support for
+  [anchors], [extends] and [file inclusion] to reuse parts of code), but
+  there is no built-in supports for reusable actions comparable with
+  what GitHub Actions proposes.
+
+  [anchors]: https://docs.gitlab.com/ee/ci/yaml/yaml_optimization.html#anchors
+  [extends]: https://docs.gitlab.com/ee/ci/yaml/yaml_optimization.html#use-extends-to-reuse-configuration-sections
+  [file inclusion]: https://docs.gitlab.com/ee/ci/yaml/includes.html
+
 
 # Docker and registry
 
