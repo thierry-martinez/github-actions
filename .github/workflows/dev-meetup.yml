@@ -13,6 +13,9 @@ jobs:
           args: dev-meetup.md -o build/dev-meetup.html
         env:
           MARP_USER: root:root
+      - name: Copy images
+        run: |
+          cp *.png build/
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
