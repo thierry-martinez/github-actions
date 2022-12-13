@@ -1,0 +1,20 @@
+on: [push]
+permissions:
+  contents: write
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Marp Build
+        uses: docker://marpteam/marp-cli:v1.7.0
+        with:
+          args: /home/marp/.cli/docker-entrypoint dev-meetup.md -o build/dev-meetup.pdf
+        env:
+          MARP_USER: root:root
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+
