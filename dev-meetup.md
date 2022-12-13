@@ -160,5 +160,9 @@ Alexandre Abadie (SED) and myself will give a training course about GitHub Actio
 
 ---
 
+![](dev-meetup_deployment.png)
+
+---
+
 # Thank you for your attention!
 
