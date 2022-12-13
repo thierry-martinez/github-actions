@@ -7,15 +7,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Copy images
+        run: |
+          mkdir build/
+          cp *.png build/
       - name: Marp Build
         uses: docker://marpteam/marp-cli:v1.7.0
         with:
           args: dev-meetup.md -o build/dev-meetup.html
         env:
           MARP_USER: root:root
-      - name: Copy images
-        run: |
-          cp *.png build/
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
