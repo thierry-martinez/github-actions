@@ -173,7 +173,7 @@ jobs:
 [![CI][ci-badge]][ci-link]
 ```
 
-![height: 2cm](status_in_badges.png)
+![height:2cm](status_in_badges.png)
 
 ---
 
