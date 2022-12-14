@@ -175,7 +175,7 @@ jobs:
 
 ![](status_in_badges.png)
 
---
+---
 
 ## Status feedback
 
@@ -196,20 +196,9 @@ jobs:
 gh repo fork --clone aabadie/github-actions-python-example
 ```
 
-- (to create a new repository instead: `gh repo create <repo name> --public --clone`)
+(to create a new repository instead: `gh repo create <repo name> --public --clone`)
 
-- Put some contents in `github-actions-primer/.github/workflows/main.yml`
-```yaml
-name: main
-on: [push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Preparing the environment
-        run: |
-          <enter some shell commands>
-```
+- Edit workflow in `github-actions-primer/.github/workflows/continuous-integration.yml`
 
 See [Choosing GitHub hosted runners] for a list of available platforms
 for `runs-on` entry. Note that `ubuntu-latest` is currently Ubuntu 20.04.
@@ -217,7 +206,8 @@ There is `ubuntu-22.04` available in beta.
 
 [Choosing GitHub hosted runners]: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners
 
-- Use `gh run list` to check the status of workflow runs on the command-line.
+- Push to run the workflow on GitHub.
+  Use `gh run list` to check the status of workflow runs on the command-line.
 
 ---
 
