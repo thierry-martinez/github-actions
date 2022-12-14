@@ -461,29 +461,29 @@ reduce build times:
 
 ## Example: a Javascript action
 
-- [`javascript action example`]: https://github.com/aabadie/github-actions-python-example/blob/custom_action_javascript/.github/actions/install-dependencies/action.yml
+- [`javascript action example`](https://github.com/aabadie/github-actions-python-example/blob/custom_action_javascript/.github/actions/install-dependencies/action.yml)
 
 - javascript actions require `node_modules/` to be commited
 
-- [`Javascript actions doc`]: https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action
+- [`Javascript actions doc`](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action)
 
-- [`Actions toolkit`]: https://github.com/actions/toolkit
+- [`Actions toolkit`](https://github.com/actions/toolkit)
 
 ---
 
 ## Example: a composite action
 
-- [`composite action example`]: https://github.com/aabadie/github-actions-python-example/blob/custom_action_composite/.github/actions/coverage/action.yml
+- [`composite action example`](https://github.com/aabadie/github-actions-python-example/blob/custom_action_composite/.github/actions/coverage/action.yml)
 
-- [`Composite actions doc`]: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+- [`Composite actions doc`](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action)
 
 ---
 
 ## Example: an action published to the marketplace
 
-- [`Repository to create an action`]: https://github.com/aabadie/action-install-python-requirements
+- [`Repository to create an action`](https://github.com/aabadie/action-install-python-requirements)
 
-- [`Published action on the Marketplace`]: https://github.com/marketplace/actions/install-python-requirements
+- [`Published action on the Marketplace`](https://github.com/marketplace/actions/install-python-requirements)
 
 - GitHub automatically detect that the repo contain an action
 
