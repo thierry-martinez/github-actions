@@ -436,10 +436,11 @@ reduce build times:
 
 - If the action is local to a repository, place the yml file in `.github/actions/‹action name›/action.yml`
 
-- Local actions are used in a workflow as follows:
+- Local actions are used in a workflow as follows, the checkout action must be called before:
 
 ```yml
-    - name: Run docker custom action
+    - uses: actions/checkout@master
+    - name: Run local custom action
       uses: ./.github/actions/local-action
       ...
 ```
@@ -462,8 +463,30 @@ reduce build times:
 
 - [`javascript action example`]: https://github.com/aabadie/github-actions-python-example/blob/custom_action_javascript/.github/actions/install-dependencies/action.yml
 
-- local javascript actions has the drawback of requiring `node_modules/` to be there => clutters the repository
+- javascript actions require `node_modules/` to be commited
 
-- [`Docker actions doc`]: https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action
+- [`Javascript actions doc`]: https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action
 
 - [`Actions toolkit`]: https://github.com/actions/toolkit
+
+---
+
+## Example: a composite action
+
+- [`composite action example`]: https://github.com/aabadie/github-actions-python-example/blob/custom_action_composite/.github/actions/coverage/action.yml
+
+- [`Composite actions doc`]: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+
+---
+
+## Example: an action published to the marketplace
+
+- [`Repository to create an action`]: https://github.com/aabadie/action-install-python-requirements
+
+- [`Published action on the Marketplace`]: https://github.com/marketplace/actions/install-python-requirements
+
+- GitHub automatically detect that the repo contain an action
+
+- Choose the GitHub release to publish to the Marketplace
+
+- The name of the action corresponds to the name of the repo, e.g `orga`/`repo name`
