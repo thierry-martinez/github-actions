@@ -185,18 +185,18 @@ jobs:
 
 ---
 
-# A primer on GitHub Action
-
----
-
 ## Repository initialization
 
 - We will use GitHub command line: https://cli.github.com/
 
-- GitHub Actions run every workflow specified in files
-  `.github/workflows/*.yml` in a GitHub repository.
 
-- `gh repo create github-actions-primer --public --clone`
+- Fork training course repository:
+
+```
+gh repo fork --clone aabadie/github-actions-python-example
+```
+
+- (to create a new repository instead: `gh repo create <repo name> --public --clone`)
 
 - Put some contents in `github-actions-primer/.github/workflows/main.yml`
 ```yaml
