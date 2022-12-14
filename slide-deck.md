@@ -449,13 +449,13 @@ reduce build times:
 
 ## Example: a Docker action
 
-- [`Docker action example`]: https://github.com/aabadie/github-actions-python-example/blob/custom_action_docker/.github/actions/docker-action/action.yml
+- [`Docker action example`](https://github.com/aabadie/github-actions-python-example/blob/custom_action_docker/.github/actions/docker-action/action.yml)
 
-- [`Docker image example`]: https://github.com/aabadie/github-actions-docker-example
+- [`Docker image example`](https://github.com/aabadie/github-actions-docker-example)
 
 - The Docker action can use a `Dockerfile` => GitHub will build the image when the action is run
 
-- [`Docker actions doc`]: https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action
+- [`Docker actions doc`](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action)
 
 ---
 
