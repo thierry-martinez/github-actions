@@ -17,10 +17,6 @@ Two-hours training, 15 december 2022
 
 ---
 
-# Tentative for a cartography of continuous integration platforms
-
----
-
 ## GitHub Actions
 
 - A [continuous integration] (CI) platform for GitHub-hosted
@@ -29,7 +25,7 @@ projects, [launched on 16 October 2018].
 [continuous integration]: https://en.wikipedia.org/wiki/Continuous_integration
 [launched on 16 October 2018]: https://github.blog/2018-10-16-future-of-software/
 
-- Providing [GitHub-hosted runners for Linux, MacOS and Windows.
+- Providing [GitHub-hosted runners] for Linux, MacOS and Windows.
 
   [GitHub-hosted runners]: https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
 
@@ -46,29 +42,128 @@ projects, [launched on 16 October 2018].
 
 ---
 
-## GitLab Pipelines
+## [Continuous integration]
 
-(introduced in [GitLab 8.8.0, on 22 May 2016](https://gitlab.com/gitlab-org/gitlab-foss/-/blob/master/changelogs/archive.md#880-2016-05-22))
+[Continuous integration] (CI): practice of short-lived
+development cycles, automatically tested and shared regularly between
+developers involved in a project.
 
-- Continuous integration system integrated in GitLab. gitlab.inria.fr
-  provides shared docker runners, ci.inria.fr can host user-maintained VMs,
-  and self-hosted GitLab runners can be registered.
+[Continuous integration]: https://en.wikipedia.org/wiki/Continuous_integration
 
-- File-based workflow specification: [`.gitlab.yml`].  A command-line
-  tool, `gitlab-ci-local` is available for running workflows locally
-  (or from other continuous integration platforms):
-  https://github.com/firecow/gitlab-ci-local
+Continuous integration platforms: [Github Actions], [ci.inria.fr], [gitlab.inria.fr].
 
-  [`.gitlab.yml`]: https://docs.gitlab.com/ee/ci/yaml/
+[ci.inria.fr]: https://ci.inria.fr
+[gitlab.inria.fr]: https://gitlab.inria.fr
 
-- The supported YAML syntax is richer than GitHub Actions (support for
-  [anchors], [extends] and [file inclusion] to reuse parts of code), but
-  there is no built-in supports for reusable actions comparable with
-  what GitHub Actions proposes.
+Automating testing (and CI in general) relies on [version control] and
+automated builds. 
 
-  [anchors]: https://docs.gitlab.com/ee/ci/yaml/yaml_optimization.html#anchors
-  [extends]: https://docs.gitlab.com/ee/ci/yaml/yaml_optimization.html#use-extends-to-reuse-configuration-sections
-  [file inclusion]: https://docs.gitlab.com/ee/ci/yaml/includes.html
+- speed up development process,
+
+- ease collaboration 
+
+- allow programmers to be more confident for not introducing regression and bugs.
+
+[version control]: https://en.wikipedia.org/wiki/Version_control
+
+This is a step towards broader goals such as [reproducible
+builds] and [reproducible research].
+
+[reproducible builds]: https://en.wikipedia.org/wiki/Reproducible_builds
+[reproducible research]: https://en.wikipedia.org/wiki/Reproducibility
+
+---
+
+## About [version control]
+
+Version control systems are software dedicated for managing
+- history and
+- collaborative edition
+of source code or any other kind of documents.
+
+The prominent software for version control is now [git],
+initially developed in 2005 by Linus Torvalds to manage the Linux
+source code.
+
+[git]: https://en.wikipedia.org/wiki/Git
+
+[git] is a decentralized tool (where versions are directly exchanged
+between peers) but most uses of it now rely on [software forges], like
+[GitHub] or gitlab.inria.fr for instance.  Software forges provide
+other services related to version control, such as [CI/CD] facilities.
+
+[software forges]: https://en.wikipedia.org/wiki/Forge_(software)
+
+Keeping the history of a code is central
+- to make change in the code without losing information and
+- to identify where regressions have been introduced ([bisection]).
+- to allow code to be modified concurrently by offering merging facilities ([three-way merge]).
+
+[bisection]: https://en.wikipedia.org/wiki/Bisection_(software_engineering)
+[three-way merge]: https://en.wikipedia.org/wiki/Merge_(version_control)#Three-way_merge
+
+---
+
+## [GitHub-hosted runners]
+
+- Hardware specification for Windows and Linux virtual machines:
+
+    - 2-core CPU (x86_64)
+    - 7 GB of RAM
+    - 14 GB of SSD space
+
+- Hardware specification for macOS virtual machines:
+
+    - 3-core CPU (x86_64)
+    - 14 GB of RAM
+    - 14 GB of SSD space
+
+[Usage limits, billing](https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration): available for free for public repositories,
+- up to 20 concurrent jobs (Linux/Windows),
+- 5 concurrent jobs for macOS.
+
+---
+
+## [Self-hosted runners]
+
+[Self-hosted runners]: https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners
+
+![](self-hosted_runners.png)
+
+---
+
+## Example of workflow
+
+In `.github/workflows/example.yml`:
+
+```yaml
+on: [push]
+jobs:
+  build-example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Compile
+        run: |
+          gcc -o hello_word hello_world.c
+      - name: Test
+        run: |
+          ./hello_word > output.txt
+          diff output.txt excepted.txt
+```
+
+---
+
+## Action status visible on repository index
+
+![](status_on_repository_index_dev-meetup.png)
+
+---
+
+## Access to logs in action details
+
+![](action_details.png)
 
 ---
 
