@@ -157,20 +157,20 @@ other services related to version control, such as [CI/CD] facilities.</p>
 <p><img src="status_in_pull_requests.png" alt="" /></p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="10" data-size="4:3">
-<h1>A primer on GitHub Action</h1>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="11" data-size="4:3">
 <h2>Repository initialization</h2>
 <ul>
 <li>
 <p>We will use GitHub command line: <a href="https://cli.github.com/">https://cli.github.com/</a></p>
 </li>
 <li>
-<p>GitHub Actions run every workflow specified in files<br />
-<code>.github/workflows/*.yml</code> in a GitHub repository.</p>
+<p>Fork training course repository:</p>
 </li>
+</ul>
+<pre><code><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>gh repo fork --clone aabadie/github-actions-python-example
+</span></span></foreignObject></svg></code></pre>
+<ul>
 <li>
-<p><code>gh repo create github-actions-primer --public --clone</code></p>
+<p>(to create a new repository instead: <code>gh repo create &lt;repo name&gt; --public --clone</code>)</p>
 </li>
 <li>
 <p>Put some contents in <code>github-actions-primer/.github/workflows/main.yml</code></p>
@@ -193,7 +193,7 @@ There is <code>ubuntu-22.04</code> available in beta.</p>
 <li>Use <code>gh run list</code> to check the status of workflow runs on the command-line.</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="12" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="11" data-size="4:3">
 <h2>Run workflow locally</h2>
 <pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ act
 </span></span></foreignObject></svg></code></pre>
@@ -218,7 +218,7 @@ Docker ⩾ 20.10.9 (<a href="https://pascalroeleven.nl/2021/09/09/ubuntu-21-10-a
 passing <code>DEBIAN_FRONTEND=noninteractive</code> in <code>apt-get</code> environment...</p>
 </blockquote>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="13" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="12" data-size="4:3">
 <h2><a href="https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container">Running jobs in a container</a></h2>
 <p>Build environments can be prepared once for all in a Docker image to<br />
 reduce build times:</p>
@@ -254,7 +254,7 @@ store it in a <a href="https://docs.github.com/en/actions/security-guides/encryp
 <li>to run the workflow locally, use <code>act --secret-file ‹file name›</code></li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="14" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="13" data-size="4:3">
 <h2>Use a job to build the environment</h2>
 <ul>
 <li>
@@ -276,7 +276,7 @@ secret.</p>
 Should be run before any actions writing useful things in it (local setup, etc.).</p>
 </blockquote>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="15" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="14" data-size="4:3">
 <h2>Run a job only if a file has changed</h2>
 <ul>
 <li>
@@ -303,7 +303,7 @@ main job should be run even if the build job has been skipped: use<br />
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="16" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="15" data-size="4:3">
 <h2>Using artifacts and deploy release</h2>
 <ul>
 <li>
@@ -314,7 +314,7 @@ main job should be run even if the build job has been skipped: use<br />
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="17" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="16" data-size="4:3">
 <h2>Some notes on Windows runner</h2>
 <ul>
 <li>
@@ -322,7 +322,7 @@ main job should be run even if the build job has been skipped: use<br />
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="18" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="17" data-size="4:3">
 <h2><a href="https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners">Adding self-hosted runners</a></h2>
 <ul>
 <li>
@@ -334,7 +334,7 @@ Follow the instructions. Tags match the values of <code>runs-on:</code> field.</
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="19" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="18" data-size="4:3">
 <h2>Matrix job</h2>
 <ul>
 <li>
@@ -347,7 +347,7 @@ combinations when a combination failed.</p>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="20" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="19" data-size="4:3">
 <h1>Docker and registry</h1>
 <h2>About <a href="https://en.wikipedia.org/wiki/Docker_(software)">docker</a></h2>
 <h2><a href="https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container">Running jobs in a container</a></h2>
@@ -428,7 +428,7 @@ Should be run before any actions writing useful things in it (local setup, etc.)
           folder: build
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="21" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="20" data-size="4:3">
 <h2>Creating custom actions</h2>
 <ul>
 <li>
@@ -442,7 +442,7 @@ Should be run before any actions writing useful things in it (local setup, etc.)
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="22" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="21" data-size="4:3">
 <h2>Describing an action</h2>
 <ul>
 <li>
@@ -468,7 +468,7 @@ See [<code>publishing on GitHub Markerplace</code>]: <a href="https://docs.githu
       <span class="hljs-string">...</span>
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="23" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="22" data-size="4:3">
 <h2>Example: a Docker action</h2>
 <ul>
 <li>
@@ -485,7 +485,7 @@ See [<code>publishing on GitHub Markerplace</code>]: <a href="https://docs.githu
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="24" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="23" data-size="4:3">
 <h2>Example: a Javascript action</h2>
 <ul>
 <li>
@@ -502,7 +502,7 @@ See [<code>publishing on GitHub Markerplace</code>]: <a href="https://docs.githu
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="25" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="24" data-size="4:3">
 <h2>Example: a composite action</h2>
 <ul>
 <li>
@@ -513,7 +513,7 @@ See [<code>publishing on GitHub Markerplace</code>]: <a href="https://docs.githu
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="26" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="25" data-size="4:3">
 <h2>Example: an action published to the marketplace</h2>
 <ul>
 <li>
