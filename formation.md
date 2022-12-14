@@ -190,3 +190,17 @@ reduce build times:
         with:
           folder: build
 ```
+
+
+
+[Workflow commands]: https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions
+
+https://github.com/actions/toolkit/blob/main/docs/commands.md
+
+https://github.com/actions/toolkit/blob/main/docs/problem-matchers.md
+::add-matcher::
+
+https://github.com/marketplace/actions/gcc-problem-matcher
+
+
+[enabling-debug-logging]: https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging
