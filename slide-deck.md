@@ -403,7 +403,7 @@ Docker is a tool to run programs in *containers*, that is to say
 
 ---
 
-## [Pushing a Docker image to GitHub registry]
+## Pushing a Docker image to GitHub registry
 
 Build environments can be prepared once for all in a Docker image to
 reduce build times:
