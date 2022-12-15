@@ -206,41 +206,6 @@ There is `ubuntu-22.04` available in beta.
 
 [Choosing GitHub hosted runners]: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners
 
-- Push to run the workflow on GitHub.
-  Use `gh run list` to check the status of workflow runs on the command-line.
-
----
-
-## Run workflow locally
-
-```bash
-$ act
-```
-
-For platforms not supported out-of-box, one can provide a Docker
-image: for instance, to support `ubuntu-22.04`
-```bash
-act -P ubuntu-22.04=local-ubuntu-22.04
-```
-
-where `local-ubuntu-22.04` is a tag for an image built with a `Dockerfile`
-such as
-```Dockerfile
-FROM ubuntu:22.04
-RUN apt-get update
-RUN apt-get upgrade --yes
-RUN apt-get install --yes sudo curl psmisc
-```
-
-> :warning: Using versions of Ubuntu ⩾ 21.10 in Docker images requires
-> Docker ⩾ 20.10.9 ([issue with syscall `clone3`]).
-
-[issue with syscall `clone3`]: https://pascalroeleven.nl/2021/09/09/ubuntu-21-10-and-fedora-35-in-docker/
-
-> :warning: GitHub-hosted runners reduce interactions much more than
-> `act` knows to do locally: think about adding options `--yes` and
-> passing `DEBIAN_FRONTEND=noninteractive` in `apt-get` environment...
-
 ---
 
 ## [Running jobs in a container](https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container)
@@ -274,6 +239,20 @@ reduce build times:
 ```
 
 - to run the workflow locally, use `act --secret-file ‹file name›`
+
+---
+
+## Matrix job
+
+- Use [`strategy.matrix`] to build the same job with different
+  combinations of parameters.
+  
+  [`strategy.matrix`]: https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
+
+- Set [`strategy.fail-fast: false`] to continue the build of other
+  combinations when a combination failed.
+  
+  [`strategy.fail-fast: false`]: https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#handling-failures
 
 ---
 
@@ -328,14 +307,6 @@ reduce build times:
 - [Storing workflow data as artifacts](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts): `actions/upload-artifact@v3` with inputs `name` and `path`, `actions/download-artifact@v3` with input `name`.
 
 - [softprops/action-gh-release](https://github.com/softprops/action-gh-release) with input `files`
-
----
-
-## Some notes on Windows runner
-
-- `windows-latest` runners come with `choco` and [some pre-installed tools], such as `7z`.
-
-  [some pre-installed tools]: https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md#tools
   
 ---
 
@@ -348,17 +319,64 @@ reduce build times:
 
 ---
 
-## Matrix job
+# [Workflow commands]
 
-- Use [`strategy.matrix`] to build the same job with different
-  combinations of parameters.
-  
-  [`strategy.matrix`]: https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
+[Workflow commands]: https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions
 
-- Set [`strategy.fail-fast: false`] to continue the build of other
-  combinations when a combination failed.
-  
-  [`strategy.fail-fast: false`]: https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#handling-failures
+- Annotations: error/notice/warning
+
+```
+echo "::error file=app.js,line=1::Missing semicolon"
+echo "::add-matcher::matcher.json"
+```
+
+Matcher for gcc: `ammaraskar/gcc-problem-matcher@master`
+
+- Grouping log lines
+
+```
+::group::{title}
+::endgroup::
+```
+
+- Masking a value
+
+```
+::add-mask::{value}
+```
+
+---
+
+# [Environment files]
+
+[Environment files]: https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#environment-files
+
+- Setting an environment variable
+
+```
+echo "{environment_variable_name}={value}" >> $GITHUB_ENV
+```
+
+- Output parameter (steps seeting outputs should have `id:`)
+
+```
+echo "{name}={value}" >> $GITHUB_OUTPUT
+```
+
+In subsequent steps, refer to `${{ steps.{id}.outputs.{name} }}"
+
+
+- Job summary
+
+```
+echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+```
+
+- Adding a system path
+
+```
+echo "{path}" >> $GITHUB_PATH
+```
 
 ---
 
@@ -368,9 +386,22 @@ reduce build times:
 
 [docker]: https://en.wikipedia.org/wiki/Docker_(software)
 
+Docker is a tool to run programs in *containers*, that is to say
+
+- sandboxes that share the same kernel as the running OS,
+
+- but in a `chroot` (isolated filesystem),
+
+- with limited access to resources (process groups, network, and more
+  generally limited system calls).
+
 ## [Running jobs in a container]
 
 [Running jobs in a container]: https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container
+
+`container:` key specifies a Docker image (otherwise, the job runs directly on the VM).
+
+## [Pushing a Docker image to GitHub registry]
 
 Build environments can be prepared once for all in a Docker image to
 reduce build times:
@@ -419,6 +450,8 @@ reduce build times:
 > :warning: `checkout` action wipes out the current directory!
 > Should be run before any actions writing useful things in it (local setup, etc.).
 
+---
+
 # Continuous Delivery/Continuous Deployment
 
 ## Continuous Delivery: Preparing new releases
@@ -431,6 +464,7 @@ reduce build times:
 
 - [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish)
 
+---
 
 ## Publishing documentation
 
