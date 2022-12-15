@@ -380,11 +380,9 @@ echo "{path}" >> $GITHUB_PATH
 
 ---
 
-# Docker and registry
+# [Docker] and registry
 
-## About [docker]
-
-[docker]: https://en.wikipedia.org/wiki/Docker_(software)
+[Docker]: https://en.wikipedia.org/wiki/Docker_(software)
 
 Docker is a tool to run programs in *containers*, that is to say
 
@@ -395,11 +393,15 @@ Docker is a tool to run programs in *containers*, that is to say
 - with limited access to resources (process groups, network, and more
   generally limited system calls).
 
+---
+
 ## [Running jobs in a container]
 
 [Running jobs in a container]: https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container
 
 `container:` key specifies a Docker image (otherwise, the job runs directly on the VM).
+
+---
 
 ## [Pushing a Docker image to GitHub registry]
 
@@ -432,6 +434,8 @@ reduce build times:
 ```
 
 - to run the workflow locally, use `act --secret-file ‹file name›`
+
+---
 
 ## Use a job to build the environment
 
