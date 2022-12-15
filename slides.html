@@ -344,8 +344,7 @@ echo &quot;::add-matcher::matcher.json&quot;
 </span></span></foreignObject></svg></code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="20" data-size="4:3">
-<h1>Docker and registry</h1>
-<h2>About <a href="https://en.wikipedia.org/wiki/Docker_(software)">docker</a></h2>
+<h1><a href="https://en.wikipedia.org/wiki/Docker_(software)">Docker</a> and registry</h1>
 <p>Docker is a tool to run programs in <em>containers</em>, that is to say</p>
 <ul>
 <li>
@@ -359,8 +358,12 @@ echo &quot;::add-matcher::matcher.json&quot;
 generally limited system calls).</p>
 </li>
 </ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="21" data-size="4:3">
 <h2><a href="https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container">Running jobs in a container</a></h2>
 <p><code>container:</code> key specifies a Docker image (otherwise, the job runs directly on the VM).</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="22" data-size="4:3">
 <h2>[Pushing a Docker image to GitHub registry]</h2>
 <p>Build environments can be prepared once for all in a Docker image to<br />
 reduce build times:</p>
@@ -395,6 +398,8 @@ store it in a <a href="https://docs.github.com/en/actions/security-guides/encryp
 <ul>
 <li>to run the workflow locally, use <code>act --secret-file ‹file name›</code></li>
 </ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="23" data-size="4:3">
 <h2>Use a job to build the environment</h2>
 <ul>
 <li>
@@ -416,7 +421,7 @@ secret.</p>
 Should be run before any actions writing useful things in it (local setup, etc.).</p>
 </blockquote>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="21" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="24" data-size="4:3">
 <h1>Continuous Delivery/Continuous Deployment</h1>
 <h2>Continuous Delivery: Preparing new releases</h2>
 <ul>
@@ -432,7 +437,7 @@ Should be run before any actions writing useful things in it (local setup, etc.)
 <li><a href="https://github.com/pypa/gh-action-pypi-publish">pypa/gh-action-pypi-publish</a></li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="22" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="25" data-size="4:3">
 <h2>Publishing documentation</h2>
 <ul>
 <li><a href="https://github.com/JamesIves/github-pages-deploy-action">JamesIves/github-pages-deploy-action</a></li>
@@ -443,7 +448,7 @@ Should be run before any actions writing useful things in it (local setup, etc.)
           folder: build
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="23" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="26" data-size="4:3">
 <h2>Creating custom actions</h2>
 <ul>
 <li>
@@ -457,7 +462,7 @@ Should be run before any actions writing useful things in it (local setup, etc.)
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="24" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="27" data-size="4:3">
 <h2>Describing an action</h2>
 <ul>
 <li>
@@ -483,7 +488,7 @@ See [<code>publishing on GitHub Markerplace</code>]: <a href="https://docs.githu
       <span class="hljs-string">...</span>
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="25" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="28" data-size="4:3">
 <h2>Example: a Docker action</h2>
 <ul>
 <li>
@@ -500,7 +505,7 @@ See [<code>publishing on GitHub Markerplace</code>]: <a href="https://docs.githu
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="26" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="29" data-size="4:3">
 <h2>Example: a Javascript action</h2>
 <ul>
 <li>
@@ -517,7 +522,7 @@ See [<code>publishing on GitHub Markerplace</code>]: <a href="https://docs.githu
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="27" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="30" data-size="4:3">
 <h2>Example: a composite action</h2>
 <ul>
 <li>
@@ -528,7 +533,7 @@ See [<code>publishing on GitHub Markerplace</code>]: <a href="https://docs.githu
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="28" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="31" data-size="4:3">
 <h2>Example: an action published to the marketplace</h2>
 <ul>
 <li>
