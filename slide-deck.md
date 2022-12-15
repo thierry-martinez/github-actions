@@ -502,7 +502,7 @@ reduce build times:
 - One can define the inputs, outputs end environnement variables of an action
 
 - If the action is designed to be reusable and public, use a dedicated public repository for the action
-  See [`publishing on GitHub Markerplace`]: https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace
+  The name of the action corresponds to the name of the repo, e.g `orga`/`repo name`@`branch/tag name`
 
 - If the action is local to a repository, place the yml file in `.github/actions/‹action name›/action.yml`
 
@@ -557,6 +557,3 @@ reduce build times:
 
 - GitHub automatically detect that the repo contain an action
 
-- Choose the GitHub release to publish to the Marketplace
-
-- The name of the action corresponds to the name of the repo, e.g `orga`/`repo name`
